@@ -5,6 +5,7 @@ function App() {
     <>
       <h1>Sri Lanka Railway Web Application</h1>
       <h1>Train tracking system</h1>
+      <h1>Train tracking system</h1>
     </>
   );
 }
