@@ -6,9 +6,13 @@ import ChangeView from "./ChangeView";
 import "./MapFunction.css";
 
 const trainRoutes = {
-  1: "Colombo to Kandy",
-  2: "Colombo to Galgamuwa",
-  3: "Colombo to Matara",
+  1: "Colombo to Badulla",
+  2: "Colombo to Matara",
+  3: "Colombo to Trincomalee ",
+  4: "Colombo to Jaffna  ",
+  5: "Colombo to Puttalam ",
+  6: "Colombo to Matale ",
+  7: "Colombo to KelaniValley ",
 };
 
 const MapFunction = () => {
