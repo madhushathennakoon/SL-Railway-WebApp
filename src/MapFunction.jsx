@@ -20,7 +20,7 @@ const MapFunction = () => {
     const fetchLocation = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}${selectedRoute}`,
+          `${import.meta.env.VITE_BASE_URL}/api/train/${selectedRoute}`,
           {
             headers: {
               "x-api-key": import.meta.env.VITE_API_KEY,
