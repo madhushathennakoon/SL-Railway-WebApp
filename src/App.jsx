@@ -1,9 +1,11 @@
 import "./App.css";
+import MapFunction from "./MapFunction";
 
 function App() {
   return (
     <>
-      <h1>Sri Lanka Railway Web Application</h1>
+      <h1>Sri Lanka Railway Tarcking Application </h1>
+      <MapFunction />
     </>
   );
 }
