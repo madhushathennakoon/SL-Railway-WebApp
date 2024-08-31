@@ -9,24 +9,21 @@ const trainRoutes = {
   1: "Colombo to Kandy",
   2: "Colombo to Galgamuwa",
   3: "Colombo to Matara",
-
-  // Add more routes here
 };
 
 const MapFunction = () => {
   const [location, setLocation] = useState(null);
-  const [mapZoom, setMapZoom] = useState(8); // Initial zoom level
-  const [selectedRoute, setSelectedRoute] = useState(1); // Default route
-  const API_KEY = "madhusha-sampath"; // Replace with your actual API key
+  const [mapZoom, setMapZoom] = useState(8);
+  const [selectedRoute, setSelectedRoute] = useState(1);
 
   useEffect(() => {
     const fetchLocation = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/api/train/${selectedRoute}`,
+          `${import.meta.env.VITE_BASE_URL}${selectedRoute}`,
           {
             headers: {
-              "x-api-key": API_KEY, // Include the API key in the request headers
+              "x-api-key": import.meta.env.VITE_API_KEY,
             },
           }
         );
@@ -45,20 +42,16 @@ const MapFunction = () => {
       }
     };
 
-    // Fetch location immediately
     fetchLocation();
 
-    // Set up polling to fetch location every 10 seconds
-    const intervalId = setInterval(fetchLocation, 10000); // Poll every 10 seconds
+    const intervalId = setInterval(fetchLocation, 10000);
 
-    // Clean up the interval on component unmount
     return () => clearInterval(intervalId);
   }, [selectedRoute]);
 
-  // Update zoom level when location changes, if desired
   useEffect(() => {
     if (location) {
-      setMapZoom(15); // Example: Zoom in when location updates
+      setMapZoom(15);
     }
   }, [location]);
 
@@ -81,7 +74,7 @@ const MapFunction = () => {
 
       <div className="map-view">
         <MapContainer
-          center={[7.8731, 80.7718]} // Default center (Sri Lanka)
+          center={[7.8731, 80.7718]}
           zoom={mapZoom}
           style={{ height: "100vh", width: "100%" }}
         >
