@@ -36,8 +36,8 @@ const MapFunction = () => {
         const loc = response.data;
 
         setLocation({
-          lat: loc.location[1],
-          lng: loc.location[0],
+          lat: loc.location[0],
+          lng: loc.location[1],
           stationName: loc.stationName,
           timestamp: loc.timestamp,
         });
